@@ -1,5 +1,9 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { FaFacebook, FaInstagram, FaTiktok, FaCircle } from "react-icons/fa6";
+import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa6";
+import cert1 from "../assets/sia.png";
+import cert2 from "../assets/shake.png";
+import cert3 from "../assets/check.png";
+import cert4 from "../assets/24seven.png";
 
 const Footer = () => {
   return (
@@ -15,56 +19,37 @@ const Footer = () => {
             </p>
           </Col>
 
-          <Col md={3}>
-            <h4 className="footer-title">Certifications</h4>
-            <p className="footer-text">
-              <FaCircle size={8} className="me-2" /> Security Industry Authority
-              Approved Contractor
-            </p>
-            <p className="footer-text">
-              <FaCircle size={8} className="me-2" /> SafeContractor Approved
-              Contractor
-            </p>
-            <p className="footer-text">
-              <FaCircle size={8} className="me-2" /> CHAS Approved Contractor
-            </p>
-            <p className="footer-text">
-              <FaCircle size={8} className="me-2" /> CCTV Systems
-            </p>
-            <p className="footer-text">
-              <FaCircle size={8} className="me-2" /> Intruder Alarm Systems
-            </p>
-            <p className="footer-text">
-              <FaCircle size={8} className="me-2" /> ISO 14001
-            </p>
-            <p className="footer-text">
-              <FaCircle size={8} className="me-2" /> ISO 9001
-            </p>
+          <Col md={3} className="d-flex flex-column mb-4 mb-md-0">
+            <h4 className="footer-title d-flex">Certifications</h4>
+            <div className="d-flex flex-wrap gap-3">
+              <div className="d-flex flex-column text-center">
+                <img src={cert1} alt="SIA Approved Contractor" width={50} height={50} />
+                <small>SIA Approved Contractor</small>
+              </div>
+              <div className="d-flex flex-column text-center">
+                <img src={cert2} alt="SafeContractor Approved" width={50} height={50} />
+                <small>SafeContractor Approved</small>
+              </div>
+              <div className="d-flex flex-column text-center">
+                <img src={cert3} alt="CHAS Approved Contractor" width={50} height={50} />
+                <small>ISO9001 Quality Assured Company</small>
+              </div>
+              <div className="d-flex flex-column text-center">
+                <img src={cert4} alt="CCTV Systems" width={50} height={50} />
+                <small>CCTV Systems</small>
+              </div>
+            </div>
           </Col>
 
           <Col md={3}>
             <h4 className="footer-title">Sectors</h4>
-            <p className="footer-text">
-              <FaCircle size={8} className="me-2" /> Warehouse
-            </p>
-            <p className="footer-text">
-              <FaCircle size={8} className="me-2" /> Construction
-            </p>
-            <p className="footer-text">
-              <FaCircle size={8} className="me-2" /> Corporate
-            </p>
-            <p className="footer-text">
-              <FaCircle size={8} className="me-2" /> Industrial
-            </p>
-            <p className="footer-text">
-              <FaCircle size={8} className="me-2" /> Retail
-            </p>
-            <p className="footer-text">
-              <FaCircle size={8} className="me-2" /> Residential
-            </p>
-            <p className="footer-text">
-              <FaCircle size={8} className="me-2" /> Site Security
-            </p>
+            <p className="footer-text">Warehouse</p>
+            <p className="footer-text">Construction</p>
+            <p className="footer-text">Corporate</p>
+            <p className="footer-text">Industrial</p>
+            <p className="footer-text">Retail</p>
+            <p className="footer-text">Residential</p>
+            <p className="footer-text">Site Security</p>
           </Col>
 
           {/* Social Media Links */}
@@ -101,7 +86,7 @@ const Footer = () => {
             <div className="contact-info mt-4">
               <h4 className="footer-title">Contact Us</h4>
               <p className="footer-text">Email: info@dfgroups.co.uk</p>
-              <p className="footer-text">Phone: + 44 0 7555 078331</p>
+              <p className="footer-text">Phone: +44 0 7555 078331</p>
               <p className="footer-text">Phone: +44 0 7576 399541</p>
             </div>
           </Col>
