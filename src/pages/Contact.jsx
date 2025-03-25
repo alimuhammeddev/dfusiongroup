@@ -45,8 +45,7 @@ const Contact = () => {
 
     try {
       // Send data to the backend
-      console.log(formData)
-      const response = await axios.post("http://localhost:9000/api/contact", {
+      const response = await axios.post("https://analyticabackend.onrender.com/api/contact", {
         name,
         email,
         message,
