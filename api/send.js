@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-// api/send.js
 import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
@@ -24,7 +23,7 @@ export default async function handler(req, res) {
       from: `"${name}" <${process.env.MAIL_USER}>`,
       to: process.env.MAIL_USER,
       replyTo: email,
-      subject: "New Contact Form Submission",
+      subject: "New DFG Contact Form Submission",
       html: `
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
