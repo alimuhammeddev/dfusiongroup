@@ -17,7 +17,13 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true); // disable button
 
-    const res = await fetch(import.meta.env.VITE_API_URL, {
+    // const res = await fetch(import.meta.env.VITE_API_URL, {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(formData),
+    // });
+
+    const res = await fetch("/api/send", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
