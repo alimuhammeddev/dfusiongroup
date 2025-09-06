@@ -1,32 +1,15 @@
 /* eslint-disable no-undef */
-import express from "express";
+// api/send.js
 import nodemailer from "nodemailer";
-import cors from "cors";
-import dotenv from "dotenv";
 
-dotenv.config();
+export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
 
-// Debug: Check if environment variables are loaded
-console.log('Mail User:', process.env.MAIL_USER);
-console.log('Mail App Password exists:', !!process.env.MAIL_APP_PASSWORD);
-
-const app = express();
-
-app.use(cors({
-  origin: ["https://dfusiongroup.vercel.app", "https://dfgroups.co.uk"],
-  methods: ["POST"],
-}));
-app.use(express.json());
-
-app.post("/send", async (req, res) => {
   const { name, email, message } = req.body;
 
   try {
-    // Verify credentials exist before creating transporter
-    if (!process.env.MAIL_USER || !process.env.MAIL_APP_PASSWORD) {
-      throw new Error('Missing Mail credentials in environment variables');
-    }
-
     const transporter = nodemailer.createTransport({
       host: "smtp.hostinger.com",
       port: 465,
@@ -37,15 +20,11 @@ app.post("/send", async (req, res) => {
       },
     });
 
-    // Verify connection before sending
-    await transporter.verify();
-    console.log('SMTP connection verified');
-
     await transporter.sendMail({
-      from: `"${name}" <${process.env.MAIL_USER}>`, 
+      from: `"${name}" <${process.env.MAIL_USER}>`,
       to: process.env.MAIL_USER,
-      replyTo: email, // Set reply-to as the form submitter's email
-      subject: "New DFG Security Contact Form Submission",
+      replyTo: email,
+      subject: "New Contact Form Submission",
       html: `
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
@@ -53,12 +32,9 @@ app.post("/send", async (req, res) => {
       `,
     });
 
-    res.json({ success: true });
-  } catch (error) {
-    console.error('Email error:', error);
-    res.status(500).json({ success: false, error: "Failed to send email" });
+    return res.status(200).json({ success: true });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ success: false, error: "Failed to send email" });
   }
-});
-
-const PORT = 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
