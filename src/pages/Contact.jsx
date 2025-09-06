@@ -2,17 +2,41 @@ import { useState } from "react";
 import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { FaMapMarkerAlt, FaEnvelope, FaPhone } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const Contact = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setShowPopup(true);
+    setLoading(true); // disable button
 
-    setTimeout(() => {
-      setShowPopup(false);
-    }, 1000); // Auto close after 3 seconds
+    const res = await fetch(import.meta.env.VITE_API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    if (res.ok) {
+      setShowPopup(true);
+      // toast.success("Message Sent Successfully!");
+      setFormData({ name: "", email: "", message: "" });
+
+      setTimeout(() => {
+        setShowPopup(false);
+      }, 1000);
+    } else {
+      console.log("Failed to send. Try again.");
+      toast.error("Failed to send. Try again.");
+    }
+
+    setLoading(false); // re-enable button after response
   };
 
   return (
@@ -49,7 +73,7 @@ const Contact = () => {
             <h4>
               <FaPhone /> Call Us
             </h4>
-            <p>+ 44 0 7555 078331</p>
+            <p>+44 0 7555 078331</p>
             <p>+44 0 7576 399541</p>
           </motion.div>
         </Col>
@@ -71,13 +95,20 @@ const Contact = () => {
               </Alert>
             )}
 
-            <Form className="contact-form p-4 shadow-lg rounded" onSubmit={handleSubmit}>
+            <Form
+              className="contact-form p-4 shadow-lg rounded"
+              onSubmit={handleSubmit}
+            >
               <Form.Group controlId="name">
                 <Form.Label>Name</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter your name"
                   required
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
                 />
               </Form.Group>
 
@@ -87,6 +118,10 @@ const Contact = () => {
                   type="email"
                   placeholder="Enter your email"
                   required
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                 />
               </Form.Group>
 
@@ -97,11 +132,20 @@ const Contact = () => {
                   rows={4}
                   placeholder="Enter your message"
                   required
+                  value={formData.message}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                 />
               </Form.Group>
 
-              <Button variant="danger" type="submit" className="mt-3 w-100">
-                Send Message
+              <Button
+                variant="danger"
+                type="submit"
+                className="mt-3 w-100"
+                disabled={loading} // disable while submitting
+              >
+                {loading ? "Sending..." : "Send Message"}
               </Button>
             </Form>
           </motion.div>
