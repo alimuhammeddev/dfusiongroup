@@ -17,12 +17,12 @@ const DFGServices = () => {
     },
     {
       title: "24/7 Surveillance",
-      text: "We provide round-the-clock monitoring to ensure your safety and security at all times.",
-      moreText: "Our advanced surveillance system includes AI-based motion detection and live alerts.",
+      text: "We provide round the clock monitoring to ensure your safety and security at all times.",
+      moreText: "Our advanced surveillance system includes AI based motion detection and live alerts.",
     },
     {
       title: "Advanced Technology",
-      text: "Utilizing cutting-edge security systems to safeguard your assets and premises.",
+      text: "Utilizing cutting edge security systems to safeguard your assets and premises.",
       moreText: "We implement biometric access, smart sensors, and cloud-based monitoring.",
     },
   ];

@@ -8,7 +8,7 @@ const reviews = [
     name: "Lewis Johnson",
     rating: 5,
     review:
-      "DFG Security provides top-notch service! Their team is highly professional and responsive. Highly recommend!",
+      "DFG Security provides top notch service! Their team is highly professional and responsive. Highly recommend!",
   },
   {
     id: 2,

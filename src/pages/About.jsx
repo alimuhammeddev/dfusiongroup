@@ -44,32 +44,32 @@ const AboutUs = () => {
         {/* About Content */}
         <div className="about-content">
           <p>
-            At <strong>DFG Security</strong>, we go beyond protection—we provide
+            At <strong>DFG Security</strong>, we go beyond protection we provide
             peace of mind.
           </p>
           <p>
             Our expertise in both physical and digital security ensures that
             businesses, individuals, and assets remain safeguarded in an
-            ever-evolving world. With a commitment to excellence, innovation,
+            ever evolving world. With a commitment to excellence, innovation,
             and reliability, we offer comprehensive security solutions tailored
             to your specific needs.
           </p>
           <p>
-            From securing high-profile locations and critical infrastructure to
-            safeguarding sensitive data and deploying state-of-the-art
+            From securing high profile locations and critical infrastructure to
+            safeguarding sensitive data and deploying state of the art
             surveillance systems, our team is equipped with the latest
             technology and industry best practices.
           </p>
           <p>
-            Whether you need real-time monitoring, risk assessment, or advanced
+            Whether you need real time monitoring, risk assessment, or advanced
             cybersecurity measures, we deliver solutions that adapt to emerging
-            threats. With DFG Security, you don't just get protection—you gain a
+            threats. With DFG Security, you don't just get protection you gain a
             trusted partner dedicated to ensuring safety, resilience, and
             confidence in every environment.
           </p>
           <p>
             Your security is our priority. Get in touch today to experience
-            tailored, top-tier security solutions.
+            tailored, top tier security solutions.
           </p>
 
           <a

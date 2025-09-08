@@ -57,8 +57,8 @@ const Home = () => {
                     Escape to Security Excellence at <span className="text-danger">DFG Security</span>
                   </h2>
                   <p className="text-red mt-3">
-                    At <strong>DFG Security</strong>, we don’t just protect—we empower. 
-                    We provide cutting-edge security solutions to keep your assets, data, and operations safe.
+                    At <strong>DFG Security</strong>, we don’t just protect we empower. 
+                    We provide cutting edge security solutions to keep your assets, data, and operations safe.
                   </p>
                   <div className="mt-4 d-flex flex-column flex-sm-row align-items-center">
                     <button className="btn btn-danger me-sm-3 mb-3 mb-sm-0" onClick={() => scrollToSection(servicesRef)}>
@@ -87,7 +87,7 @@ const Home = () => {
                 <Card.Body>
                   <Card.Title>Our Mission</Card.Title>
                   <Card.Text>
-                    To provide cutting-edge security solutions that protect and empower businesses and individuals worldwide.
+                    To provide cutting edge security solutions that protect and empower businesses and individuals worldwide.
                   </Card.Text>
                   {showMission && (
                     <Card.Text className="mt-3 text-black">
@@ -121,7 +121,7 @@ const Home = () => {
                   <Card.Title>Our Core Values</Card.Title>
                   <Card.Text>
                     Integrity & Trust <br />
-                    Customer-Centric Security <br />
+                    Customer Centric Security <br />
                     Innovation & Excellence <br />
                     Commitment to Service
                   </Card.Text>
